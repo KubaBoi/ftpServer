@@ -18,7 +18,7 @@ def runFileServer():
 
     handler.banner = "pyftpdlib based ftpd ready."
 
-    address = ('0.0.0.0', 21)
+    address = ('', 21)
     server = FTPServer(address, handler)
 
     server.max_cons = 256
