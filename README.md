@@ -14,6 +14,12 @@ sudo systemctl start vsftpd
 
 sudo systemctl enable vsftpd
 
+firewall-cmd --zone=public --permanent --add-port=21/tcp
+
+firewall-cmd --zone=public --permanent --add-service=ftp
+
+firewall-cmd --reload
+
 ### Config
 
 sudo cp /etc/vsftpd/vsftpd.conf /etc/vsftpd/vsftpd.conf.default
