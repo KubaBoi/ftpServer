@@ -9,7 +9,7 @@ from pyftpdlib.servers import FTPServer
 def runFileServer():
     authorizer = DummyAuthorizer()
 
-    authorizer.add_user('kuba', 'heslo', '/', perm='elradfmwMT')
+    authorizer.add_user('kuba', 'heslo', os.getcwd(), perm='elradfmwMT')
     authorizer.add_anonymous(os.getcwd())
 
     handler = FTPHandler
