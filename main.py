@@ -16,6 +16,7 @@ def runFileServer():
     handler.authorizer = authorizer
 
     handler.banner = "pyftpdlib based ftpd ready."
+    handler.passive_ports = range(60000, 65535)
 
     address = ('0.0.0.0', 21)
     server = FTPServer(address, handler)
