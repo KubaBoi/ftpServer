@@ -14,6 +14,7 @@ def runFileServer():
 
     handler = FTPHandler
     handler.authorizer = authorizer
+    handler.masquerade_address = '185.167.209.79'
 
     handler.banner = "pyftpdlib based ftpd ready."
 
