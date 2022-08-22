@@ -9,14 +9,13 @@ from pyftpdlib.servers import FTPServer
 def runFileServer():
     authorizer = DummyAuthorizer()
 
-    authorizer.add_user('kuba', 'Heslo_12', '/root', perm='elradfmwMT')
+    authorizer.add_user('kuba', 'Heslo_12', '/', perm='elradfmwMT')
     authorizer.add_anonymous(os.getcwd())
 
     handler = FTPHandler
     handler.authorizer = authorizer
 
     handler.banner = "pyftpdlib based ftpd ready."
-    handler.passive_ports = range(60000, 65535)
 
     address = ('0.0.0.0', 21)
     server = FTPServer(address, handler)
