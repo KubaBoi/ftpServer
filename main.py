@@ -9,16 +9,16 @@ from pyftpdlib.servers import FTPServer
 def runFileServer():
     authorizer = DummyAuthorizer()
 
-    authorizer.add_user('kuba', 'heslo', os.getcwd(), perm='elradfmwMT')
+    authorizer.add_user("kuba", "heslo", "/", perm="elradfmwMT")
     authorizer.add_anonymous(os.getcwd())
 
     handler = FTPHandler
     handler.authorizer = authorizer
-    handler.masquerade_address = '130.61.38.75'
+    handler.masquerade_address = "130.61.38.75"
     handler.passive_ports = range(60000, 60099)
     handler.banner = "pyftpdlib based ftpd ready."
 
-    address = ('', 21)
+    address = ("", 21)
     server = FTPServer(address, handler)
 
     server.max_cons = 256
